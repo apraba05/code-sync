@@ -3,11 +3,12 @@ class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         hashmap = defaultdict(list)
 
-        for i in nums:
-            hashmap[nums[i-1]].append(nums[i-1])
+        for i in range (len(nums)):
+            hashmap[nums[i]].append(i)
+        print(hashmap)
 
-        for hash in hashmap.values():
-            if(len(hash) > 1):
+        for funct in hashmap.values():
+            if len(funct) > 1:
                 return True
-            else:
-                return False
+        
+        return False
