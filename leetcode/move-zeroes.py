@@ -6,15 +6,17 @@ class Solution:
         while (left <= right):
             if (nums[left] < nums[right] and nums[left] == 0):
                 left += 1
-            elif(nums[left] < nums[right] and nums[left] != 0):
+            elif(nums[left] > nums[right]):
+                right -= 1
+            elif(nums[left] < nums[right]):
                 temp = nums[right]
                 nums[right] = nums[left]
                 nums[left] = temp
                 right -= 1
             else:
-                temp = nums[left]
-                nums[left] = nums[right]
-                nums[right] = temp
+                temp = nums[right]
+                nums[right] = nums[left]
+                nums[left] = temp
                 right -= 1
                 
         
