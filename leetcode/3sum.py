@@ -4,29 +4,32 @@ class Solution:
         middle = len(nums) // 2
         right = len(nums) - 1
         nums = sorted(nums)
+        print(nums)
         threeSumList = list()
+
+        if(len(nums) > 3):
+            middle = middle - 1
         
         while(left != middle != right):
                 if(nums[left] + nums[middle] + nums[right] == 0):
                     temp = []
-                    print("adding array")
                     temp.append(nums[left])
                     temp.append(nums[middle])
                     temp.append(nums[right])
                     threeSumList.append(temp)
-                    if(middle + 1 == right):
+                    right -= 1
+                elif(nums[left] + nums[middle] + nums[right] > 0):
+                    if(middle+1 == right):
                         left += 1
                     else:
-                        middle += 1
-                elif(nums[left] + nums[middle] + nums[right] > 0):
-                    right -= 1
-                    print("decreasing right")
+                        right -= 1
                 elif(nums[left] + nums[middle] + nums[right] < 0):
-                    left += 1
-                    print("increasing left")
+                    if(middle-1 == left):
+                        middle += 1
+                    else:
+                        left += 1
                 else:
                     continue
-                    print("else loop")
         
         threeSumList = list(set(tuple(triplet) for triplet in threeSumList))
 
