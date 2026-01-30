@@ -6,7 +6,6 @@ class Solution:
         nums = sorted(nums)
         threeSumList = list()
         
-        
         while(left != middle != right):
                 if(nums[left] + nums[middle] + nums[right] == 0):
                     temp = []
@@ -28,5 +27,7 @@ class Solution:
                 else:
                     continue
                     print("else loop")
+        
+        threeSumList = list(set(tuple(triplet) for triplet in threeSumList))
 
-        return(threeSumList)
+        return threeSumList
