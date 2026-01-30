@@ -3,21 +3,10 @@ class Solution:
         right = len(nums) - 1
         left = 0
 
-        while (left <= right):
-            if (nums[left] < nums[right] and nums[left] == 0):
+        for right in range(len(nums)):
+            if (nums[right] != 0):
+                temp = nums[left]
+                nums[left] = nums[right]
+                nums[right] = temp
                 left += 1
-            elif(nums[left] > nums[right]):
-                right -= 1
-            elif(nums[left] < nums[right]):
-                temp = nums[right]
-                nums[right] = nums[left]
-                nums[left] = temp
-                right -= 1
-            else:
-                temp = nums[right]
-                nums[right] = nums[left]
-                nums[left] = temp
-                right -= 1
-                
-        
         print(nums)
