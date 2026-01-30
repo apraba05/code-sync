@@ -10,7 +10,7 @@ class Solution:
                 arr.append(left+1)
                 arr.append(right+1)
                 return(arr)
-            elif(target < numbers[right]):
+            elif(target < (numbers[left] + numbers[right])):
                 right -= 1
             else:
                 left += 1
