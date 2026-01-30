@@ -4,8 +4,8 @@ class Solution:
         nums_new = set(nums)
         current_longest = 1
 
-        if(len(nums_new) == 1):
-            return 1
+        if(len(nums) == 0):
+            return 0
 
         for j in nums_new:
             i = 1
