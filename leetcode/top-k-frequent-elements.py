@@ -14,7 +14,11 @@ class Solution:
         sorted_another_one = sorted(another_one.items(), key=lambda x:x[1], reverse=True)
         new_sort = dict(sorted_another_one)
 
-        for i in range (len(arr)):
-            
-
-        print(arr)
+        values = tuple(new_sort.keys())
+        while k != 0:
+            for i in range (len(arr)):
+                arr[i] = values[i]
+            k -= 1
+            continue
+        
+        return(arr)
