@@ -7,37 +7,57 @@ class Solution:
             stack.append(t)   
         stack.reverse()
 
-        for i in stack:
-            last = len(stack) - 1
-            second_last = len(stack) - 2
-            if (stack[second_last] < 0):
+        while (len(stack) > 0):
+            start_len = len(days)
+            if (len(stack) == 1):
                 stack.pop()
                 days.append(0)
+                continue
+
+            last = len(stack) - 1
+            second_last = len(stack) - 2
+
+            if(len(stack) == 2):
+                if(stack[1] < stack[0]):
+                    print("appending length 2")
+                    stack.pop()
+                    days.append(1)
+                else:
+                    stack.pop()
+                    days.append(0)
+                continue
+            
+         
             if (stack[last] < stack[second_last]):
-                diff = last - second_last
-                stack.pop()
-                days.append(diff)
+                    diff = last - second_last
+                    stack.pop()
+                    days.append(diff)
+                    print("greater than")
             elif (stack[last] > stack[second_last]):
+                    found = False
                     last = len(stack) - 1
                     second_last = len(stack) - 2
+                    print("less than")
                     while(second_last >= 0):
                         if(stack[last] < stack[second_last]):
                             diff = last - second_last
+                            print(diff)
                             stack.pop()
                             days.append(diff)
-                            last -= 1
-                            second_last = len(stack) -2
-                        elif(stack[last] > stack[second_last]):
-                            if(second_last < 0):
-                                break
-                            else:
-                                second_last -= 1
+                            found = True
+                            break
                         else:
-                            stack.pop()
-                            days.append(0)
-            else:
-                stack.pop()
-                days.append(0)
-            
+                            second_last -= 1
 
-        print(days)
+                    if not found:
+                        stack.pop()
+                        days.append(0)
+                    continue
+
+
+            else:
+                    stack.pop()
+                    days.append(0)
+                    continue
+
+        return days
