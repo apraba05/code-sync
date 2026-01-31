@@ -32,12 +32,10 @@ class Solution:
                     diff = last - second_last
                     stack.pop()
                     days.append(diff)
-                    print("greater than")
             elif (stack[last] > stack[second_last]):
                     found = False
                     last = len(stack) - 1
                     second_last = len(stack) - 2
-                    print("less than")
                     while(second_last >= 0):
                         if(stack[last] < stack[second_last]):
                             diff = last - second_last
