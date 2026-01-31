@@ -19,7 +19,6 @@ class Solution:
 
             if(len(stack) == 2):
                 if(stack[1] < stack[0]):
-                    print("appending length 2")
                     stack.pop()
                     days.append(1)
                 else:
