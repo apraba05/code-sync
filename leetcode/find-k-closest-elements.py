@@ -3,11 +3,14 @@ class Solution:
         minHeap = []
 
         for i in arr:
-            closestElement = i - x
+            closestElement = abs(i - x)
             minHeap.append([closestElement,i])
             
         
         heapq.heapify(minHeap)
+        
+        
+        
 
         result = []
 
@@ -16,4 +19,4 @@ class Solution:
             result.append(element)
             k -= 1
         
-        return result
+        return sorted(result)
