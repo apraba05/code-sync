@@ -1,20 +1,19 @@
-from collections import Counter, defaultdict
+from collections import Counter
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        minHeap = []
+        heap = []
         freq = Counter(words)
 
-        for word, count in freq.items():
-            minHeap.append([-count,word])
+        for word, counter in freq.items():
+            heap.append([-counter,word])
+        
 
-        heapq.heapify(minHeap)
-
-        print(minHeap)
-
+        heapq.heapify(heap)
         result = []
 
         while k > 0:
-            result.append(heapq.heappop(minHeap)[1])
+            value, word = heapq.heappop(heap)
+            result.append(word)
             k -= 1
         
         return result
